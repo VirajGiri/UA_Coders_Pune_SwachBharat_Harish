@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>स्वच्छ भारत </title>
+    <!--<link rel="icon" href="images/favicon.png">-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Shrikhand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Shrikhand|Slabo+27px" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">    
+    <link rel="stylesheet" href="css/slider.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+     
+    <link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css" media="screen" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="js/jquery.js"></script>
+    <script src="swacchBharat.js"></script>
+    <SCRIPT TYPE="TEXT/JAVASCRIPT" SRC=" https://gisttransserver.in/js/CDAC-Typing.min.js"></SCRIPT>
+
+</head>
+
+<body  ng-app="swacchBharat" ng-controller="complaintController">
+<div id="rec"></div>
+    <header data-spy="affix" data-offset-top="20">
+    	<nav class="navbar navbar-inverse">
+          <div class="container">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a class="navbar-brand" href="index.html"><img src="images/swac.jpg" class="img-responsive"></a>
+            </div>
+      		<div id="navbar1" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right"> 
+              <li><a href="#home"> होम </a></li>
+              <li><a href="#aboutus">हमारे बारें में </a></li>
+              <li><a href="#whyUs">यह क्यों </a></li>
+              <!--<li><a href="#wantToHost">Want to Host</a></li>
+              <li><a href="#kitchenFacility">Kitchen facility</a></li>
+              <li><a href="#yourService">At Your Service</a></li>
+              <li><a class="btnPhoneno" href="tel:9987227187"><i class="fas fa-mobile-alt"></i> 99872 27187</a></li>-->
+            </ul>
+            </div>
+          </div>
+        </nav>
+    </header><!--/header-->
+    <section class="sec_banner" id="home">
+    	<div class="opsBanner">&nbsp;</div>
+        <div class="banner_content">        	
+    		<ul class="bxslider_content" id="bxsliderContent">
+            	<li>
+                    <h3> एक कदम स्वछता की ओर </h3>
+                    <h4>दर्ज करें  <strong>स्वच्छ.भारत </strong> पे . गन्दगी के बारे में
+                        हर शिकायत का हल होना जरूरी है। </h4>
+                </li>
+                <li>
+                    <h3>एक कदम स्वछता की ओर</h3>
+                    <h4>दर्ज करें  <strong>स्वच्छ.भारत </strong> पे . हम आपकी शिकायत का ऊत्तर है|</h4>
+                </li>
+                <li>
+                    <h3>एक कदम स्वछता की ओर</h3>
+                    <h4>दर्ज करें  <strong>स्वच्छ.भारत </strong> पे .आवो मदत करे भारत स्वच्छ बनाने के लिए। </h4>
+                </li>
+                <li>
+                    <h3>एक कदम स्वछता की ओर</h3>
+                    <h4>दर्ज करें  <strong>स्वच्छ.भारत </strong> पे . एक  स्वछता की ओर , एक  जागरूक नागरिक नागरिक की ओर। </h4>
+                </li>
+            </ul>
+        </div>
+        <div class="banner_form">        
+                <form ng-submit="comaplainReg()" class="form-part" name="form1" id="form1" method="post" >
+              <div class="form-row">
+                <div class="col-sm-2">
+                  <div class="bxforminput">
+                      <i class="fas fa-user"></i>
+                      <input type="text" name="name" id="name" ng-model="complaintData.Name"  class="form-control" placeholder="आपका नाम " required>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="bxforminput">
+                      <i class="far fa-envelope"></i>
+                      <input type="text" id="email" name="email" ng-model="complaintData.Email" class="form-control" placeholder="आप का ईमेल ">
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="bxforminput bxformComments">
+                      <i class="fas fa-comment"></i>
+                      <input type="text" name="phone" id="phone" ng-model="complaintData.Phone" class="form-control" required placeholder="आपका फ़ोन नंबर " />
+                  </div>
+                </div>
+                 <div class="col-sm-3">
+                  <div class="bxforminput bxformComments">
+                      <!--<i class="fas fa-calendar-alt"></i>-->
+                      <textarea rows="4"  ng-model="complaintData.complaint" cols="50" id="txtarea">
+                            आपकी कचरा , गन्दगी,और जो भी परिसर, वातवरन  को हानि पहुंचाने वाली शिकायत दर्ज करें।
+                      </textarea>
+                  </div>
+                </div>
+                  <br>
+               <!-- <div class="col-sm-4">
+                  <div class="capchabx">
+						<span class="msg-error error"></span>
+
+				  
+					  <div class="g-recaptcha" data-sitekey="6LcJl4YUAAAAACnUodTqh23hhWKgOnUgdYKMSG5q" data-callback="recaptchaCallback"></div>	
+                  </div>
+                </div>-->
+                 
+                <div class="col-sm-12">
+                    <div class="bxforminput bxforminputsubmit">
+                        <button type="submit" value="Submit" id="submit" class="btn">दर्ज करें </button>
+                    </div>
+                </div>
+
+
+
+
+              </div>
+
+            </form>
+ 
+
+ </div>
+    	<ul class="bxslider">
+        	<li><img src="images/sample31-copy1.jpg" class="img-responsive"></li>
+        	<li><img src="images/sample31-copy1.jpg" class="img-responsive"></li>
+        	<li><img src="images/sample31-copy1.jpg" class="img-responsive"></li>
+        	<li><img src="images/sample31-copy1.jpg" class="img-responsive"></li>
+        </ul>
+    </section><!--/banner-->    
+   <!-- <div id="slider" style="right:-342px;">
+		<div id="sidebar" onClick="open_panel()">
+			<img src="images/contact.png"/>
+		</div>
+		<div id="header">
+            <h2>नागरिक पूछताछ </h2>
+            <h5>आगे करे </h5>
+            <div class="bxforminput"> 
+            <form  class="form-part" name="form1" id="form2" method="post" >
+                <input type="text" name="name" id="name"  class="form-control" placeholder="आपका नाम " required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="आप का ईमेल " required>
+                <input type="text" name="phone" id="phone" class="form-control" required placeholder="आपका फ़ोन नंबर " />
+                <textarea rows="4" cols="50">
+                            आपकी कचरा , गन्दगी,और जो भी परिसर, वातवरन  को हानि पहुंचाने वाली शिकायत दर्ज करें।
+                      </textarea>
+                &lt;!&ndash;<div class="capchabx">
+				<span class="msg-error error"></span>
+
+                    <div class="g-recaptcha" data-sitekey="6LcJl4YUAAAAACnUodTqh23hhWKgOnUgdYKMSG5q" data-callback="recaptchaCallback">  
+                    </div>	
+                </div>	&ndash;&gt;
+                <div class="submitbx">	  
+                    <button type="submit" class="btnsubmit" value="Submit" id="submit" name="Submit">शिकायत यहाँ दर्ज करें </button>
+                </div>	
+            </form>	
+            </div>
+         </div>
+	</div>&lt;!&ndash;/slider Form&ndash;&gt; -->
+    <section class="secAboutus" id="aboutus">
+    	<div class="container">
+        	<div class="bxAbout">
+            	<h4 class="titleH">हमारे बारें में </h4>
+                <h2>एक कदम स्वछता की ओर</h2>
+                <div class="titleBorder">&nbsp;</div>
+                <h3> हम आपकी शिकायत का जितने जल्दी हो सके निरसरण करने के लिए हाजिर है. जैसे ही आपकी शिकायत दर्ज हो कयेगी हमारी एक टीम वहां आकर जांच करेगी या फिर वहां के लोकल अधिकारी से बात करके एक्शन लेगी। </h3>
+                
+                <div class="reserveBtn">
+                    <a href="#">Reserve a date</a>
+                </div>
+                <div class="bxAboutEmailPhone">
+                    <ul>
+                        <li><span>Tel: </span>+91 99887685556</li>
+                        <li><span>Email: </span>स्वच्छ@भारत.भारत </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>  <!--/About us-->   
+
+    <section class="sec_atYourService secAboutus" id="yourService">
+    	<div class="container">
+        	<div class="bxAbout bxAtyourService">
+                <h2>हम आपकी सेवा में </h2>
+                <div class="bxAboutEmailPhone">
+                    <ul>
+                        <li><span>Tel: </span>+91 99887685556</li>
+                        <li><span>Email: </span>स्वच्छ@भारत.भारत </li>
+                    </ul>
+                </div>
+                <div class="titleBorder">&nbsp;</div>
+                <h3>हम आपकी शिकायत का जितने जल्दी हो सके निरसरण करने के लिए हाजिर है.</h3>
+                <div class="booknowForm">
+                <!--    <div class="titleBooknow col-sm-12">
+                        <h3>Book now</h3>
+                        <h4>We will confirm your order via E-Mail</h4>
+                    </div>         -->
+                    <form ng-submit="comaplainReg()" class="form-part" name="form1" id="form3" method="post" >
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">आपका नाम  </label><br>
+                            <input type="text" name="name" id="name" ng-model="complaintData.Name"   class="form-control" placeholder="आपका नाम " required>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">आप का ईमेल </label><br>
+                            <input type="text" id="email" ng-model="complaintData.Email" name="email" class="form-control" placeholder="आप का ईमेल " >
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">फ़ोन नंबर.</label><br>
+                            <input type="text" name="phone" ng-model="complaintData.Phone" id="phone" class="form-control" required placeholder="आपका फ़ोन नंबर " />
+                        </div>
+                      </div>
+
+                     <!-- <div class="form-group col-md-12">
+					  <span class="msg-error error"></span>
+
+                            <div class="g-recaptcha" data-sitekey="6LcJl4YUAAAAACnUodTqh23hhWKgOnUgdYKMSG5q" data-callback="recaptchaCallback"></div>
+                      </div>-->
+                        <textarea rows="4" cols="50" ng-model="complaintData.complaint" id="txtarea">
+                            आपकी कचरा , गन्दगी,और जो भी परिसर, वातवरन  को हानि पहुंचाने वाली शिकायत दर्ज करें।
+                      </textarea>
+					  
+                      <div class="form-row" >                      
+                        <button type="submit" class="btn" value="Submit" id="submit" name="Submit">दर्ज करें</button>
+                       </div>  
+                    </form>                   
+                    
+                </div>
+               <!-- <div class="bookByPhone">
+                        <h3>BOOK BY <strong>PHONE</strong></h3>
+                        <p>Prefer to make your reservation via phone? <span>Give us a call! </span>We can be reached 7 days a week from 10am – 7pm <span>
+                        (91)</span> 99872 27187 / 7777075648</p>
+                        <h5>Opening hours:</h5>
+                        <p>Monday – Sunday, 10am – 7pm</p>
+                    </div>-->
+           </div>
+        </div>
+    </section><!--/yourService-->
+    <footer id="footer">
+    	<section class="sec_top">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-sm-3">
+                    	<div class="bxfoottop bxfoottopAboutus">
+                        	<h3>हमारे बारें में</h3>
+                            <h5>एक कदम स्वछता की ओर</h5>
+                          <p> हम आपकी शिकायत का जितने जल्दी हो सके निरसरण करने के लिए हाजिर है.</p>
+                        </div>
+                    </div>
+                	<!--<div class="col-sm-3">
+                    	<div class="bxfoottop">
+                        	<h3>Contact us</h3>
+                      <ul class="ulkeep">
+                            	<li>
+                                	<h5><i class="fa fa-map-marker"></i></h5>
+                                    <p>1st Floor Batra Properties above Raj Automobiles, Hansraj Bhugra Marg Near forensic Lab, Santacruz East Mumbai, Maharastra 400098</p>
+                                </li>
+                            	<li>
+                                	<h5><i class="fa fa-phone"></i></h5>
+                                    <p>Tel. +91 99872 27187 / 7777075648</p>
+                                </li>
+                            	<li>
+                                	<h5><i class="fa fa-envelope"></i></h5>
+                                    <p>hello@hirecooks.com</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                	<div class="col-sm-2">
+                    	<div class="bxfoottop bxInformation">
+                        	<h3>Information</h3>
+                              <ul class="ulkeep"> 
+                                  <li><a href="#home">Home</a></li> 
+                                  <li><a href="#aboutus">About us</a></li>                            	  
+                                  <li><a href="#whyUs">Why us</a></li>
+                                  <li><a href="#wantToHost">Want to Host</a></li>
+                                  <li><a href="#kitchenFacility">Kitchen facility</a></li>
+                                  <li><a href="#yourService">At Your Service</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                	<div class="col-sm-4">
+                    	<div class="bxfoottop">
+                        	<h3>Head Office</h3>
+                      <div class="footmap"> 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d17936.78798303086!2d72.85067294443088!3d19.07493816697835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shire+cooks!5e0!3m2!1sen!2sin!4v1532489236067" frameborder="0" style="border:0" allowfullscreen></iframe>
+            
+            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+        <section class="copyright">
+        	<div class="container">
+            	<h3 style="color: snow">© Copyright 2019. स्वच्छ  भारत.</h3>
+            </div>
+        </section>
+    </footer>
+    
+    	
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+              adaptiveHeight: true,
+              mode: 'fade',
+              auto: true,
+              autoControl: true,
+			  speed: 5000
+            });	
+			
+			
+			
+		
+			
+			
+			
+			
+        });
+    </script>    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bxslider_content').bxSlider({
+              mode: 'fade',
+              auto: true,
+              autoControl: true
+            });	
+        });
+    </script> 
+    <script>
+		$(document).ready(function(){
+			$('ul.nav li.dropdown').hover(function() {
+			  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+			}, function() {
+			  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+			});
+			
+		});
+ </script>
+    <script src="js/slider.js"></script>
+    <script type="text/javascript" src="source/jquery.fancybox.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+	$(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'mm/dd/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+</script>
+
+
+<script>
+    function recaptchaCallback() {
+        var btnSubmit = document.getElementById("submit");
+        //var btnSubmit = document.getElementById("submit");
+
+        if ( btnSubmit.classList.contains("hidden") ) {
+            btnSubmit.classList.remove("hidden");
+            btnSubmitclassList.add("show");
+			//$('.g-recaptcha').hide();
+			
+        }
+    }
+</script>
+
+</body>
+</html>
